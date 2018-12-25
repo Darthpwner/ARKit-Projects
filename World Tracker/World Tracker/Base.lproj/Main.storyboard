@@ -22,8 +22,13 @@
                                 <rect key="frame" x="0.0" y="0.0" width="375" height="667"/>
                             </arscnView>
                             <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="VaQ-qk-VwZ">
-                                <rect key="frame" x="20" y="617" width="30" height="30"/>
+                                <rect key="frame" x="0.0" y="637" width="30" height="30"/>
                                 <color key="backgroundColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
+                                <constraints>
+                                    <constraint firstAttribute="height" constant="30" id="7Ub-i3-isF"/>
+                                    <constraint firstAttribute="width" relation="greaterThanOrEqual" constant="30" id="VGB-go-NcF"/>
+                                    <constraint firstAttribute="width" relation="greaterThanOrEqual" constant="30" id="W71-40-sod"/>
+                                </constraints>
                                 <state key="normal" title="Add">
                                     <color key="titleShadowColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
                                 </state>
@@ -31,16 +36,32 @@
                                     <action selector="add:" destination="BV1-FR-VrT" eventType="touchUpInside" id="ape-bu-2dP"/>
                                 </connections>
                             </button>
+                            <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="neS-Mc-si1">
+                                <rect key="frame" x="336" y="637" width="39" height="30"/>
+                                <color key="backgroundColor" red="1" green="1" blue="1" alpha="1" colorSpace="calibratedRGB"/>
+                                <constraints>
+                                    <constraint firstAttribute="height" constant="30" id="ZER-vV-YQw"/>
+                                </constraints>
+                                <state key="normal" title="Reset">
+                                    <color key="titleShadowColor" red="1" green="1" blue="1" alpha="1" colorSpace="calibratedRGB"/>
+                                </state>
+                                <connections>
+                                    <action selector="reset:" destination="BV1-FR-VrT" eventType="touchUpInside" id="RVp-hV-I8M"/>
+                                </connections>
+                            </button>
                         </subviews>
                         <color key="backgroundColor" white="0.0" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
                         <constraints>
+                            <constraint firstItem="fQZ-KI-GVf" firstAttribute="trailing" secondItem="neS-Mc-si1" secondAttribute="trailing" id="5vE-EW-rMA"/>
+                            <constraint firstItem="fQZ-KI-GVf" firstAttribute="bottom" secondItem="neS-Mc-si1" secondAttribute="bottom" id="Fzg-xN-x5P"/>
                             <constraint firstItem="BrB-h1-WRS" firstAttribute="leading" secondItem="fQZ-KI-GVf" secondAttribute="leading" id="GsS-dJ-CKf"/>
+                            <constraint firstItem="neS-Mc-si1" firstAttribute="leading" relation="greaterThanOrEqual" secondItem="VaQ-qk-VwZ" secondAttribute="trailing" constant="8" symbolic="YES" id="NFM-ZV-NfM"/>
+                            <constraint firstItem="VaQ-qk-VwZ" firstAttribute="leading" secondItem="fQZ-KI-GVf" secondAttribute="leading" id="Tj6-hc-iGc"/>
                             <constraint firstItem="BrB-h1-WRS" firstAttribute="bottom" secondItem="fQZ-KI-GVf" secondAttribute="bottom" id="VpT-BR-CcM"/>
                             <constraint firstItem="fQZ-KI-GVf" firstAttribute="trailing" relation="greaterThanOrEqual" secondItem="VaQ-qk-VwZ" secondAttribute="trailing" symbolic="YES" id="WUK-zs-gwI"/>
                             <constraint firstItem="BrB-h1-WRS" firstAttribute="trailing" secondItem="fQZ-KI-GVf" secondAttribute="trailing" id="XyZ-9z-H8e"/>
-                            <constraint firstItem="VaQ-qk-VwZ" firstAttribute="leading" secondItem="fQZ-KI-GVf" secondAttribute="leading" constant="20" id="hTf-er-CGW"/>
                             <constraint firstItem="BrB-h1-WRS" firstAttribute="top" secondItem="U0K-SW-4ec" secondAttribute="top" id="rJc-2c-zQA"/>
-                            <constraint firstItem="fQZ-KI-GVf" firstAttribute="bottom" secondItem="VaQ-qk-VwZ" secondAttribute="bottom" constant="20" id="zGU-Mj-Uk3"/>
+                            <constraint firstItem="fQZ-KI-GVf" firstAttribute="bottom" secondItem="VaQ-qk-VwZ" secondAttribute="bottom" id="zGU-Mj-Uk3"/>
                         </constraints>
                         <viewLayoutGuide key="safeArea" id="fQZ-KI-GVf"/>
                     </view>

@@ -11,11 +11,36 @@ import SceneKit
 import ARKit
 
 class ViewController: UIViewController, ARSCNViewDelegate {
+    let configuration = ARWorldTrackingConfiguration()
+    
     @IBAction func add(_ sender: Any) {
         let node = SCNNode()
-        node.geometry = SCNBox(width: 0.1, height: 0.1, length: 0.1, chamferRadius: 0)
+        node.geometry = SCNBox(width: 0.1, height: 0.1, length: 0.1, chamferRadius: 0.1/2)
         node.geometry?.firstMaterial?.diffuse.contents = UIColor.blue
+
+//        Random positioning
+        let x = randomNumbers(firstNum: -0.3, secondNum: 0.3)
+        let y = randomNumbers(firstNum: -0.3, secondNum: 0.3)
+        let z = randomNumbers(firstNum: -0.3, secondNum: 0.3)
+        
+        node.position = SCNVector3(x, y, z)
         self.sceneView.scene.rootNode.addChildNode(node)
+    }
+    
+    func randomNumbers(firstNum: CGFloat, secondNum: CGFloat) -> CGFloat {
+        return CGFloat(arc4random()) / CGFloat(UINT32_MAX) * abs(firstNum - secondNum) + min(firstNum, secondNum)
+    }
+    
+    @IBAction func reset(_ sender: Any) {
+        self.restartSession()
+    }
+    
+    func restartSession() {
+        self.sceneView.session.pause()
+        self.sceneView.scene.rootNode.enumerateChildNodes { (node, _) in node.removeFromParentNode()
+        }
+        self.sceneView.session.run(self.configuration, options:
+            [.resetTracking, .removeExistingAnchors])
     }
     
     @IBOutlet var sceneView: ARSCNView!
